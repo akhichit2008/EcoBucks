@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="manifest" href="/manifest.json">
+  <link rel="icon" type="image/x-icon" href="{{url_for('static',filename='favicon.ico')}}">
+  <link rel="icon" href="{{url_for('static', filename='logo-1_144x144.png')}}" type="image/png">
+  <link rel="icon" href="{{url_for('static', filename='logo-1_192x192.png')}}" type="image/png">
+  <link rel="icon" href="{{url_for('static', filename='logo-1_512x512.png')}}" type="image/png">
+  <link rel="apple-touch-icon" href="{{url_for('static', filename='logo-1_144x144.png')}}" type="image/png">
+  <link rel="apple-touch-icon" href="{{url_for('static', filename='logo-1_192x192.png')}}" type="image/png">
+  <link rel="apple-touch-icon" href="{{url_for('static', filename='logo-1_512x512.png')}}" type="image/png">
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register("/sw.js").then(function(registration) {
+          console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        }, function(err) {
+          console.log('ServiceWorker registration failed: ', err);
+        });
+      });
+    }
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carousel Quiz</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <style>
+    .carousel {
+      height: 100vh;
+    }
+    .carousel-inner {
+      height: 100%;
+    }
+    .carousel-item {
+      height: 100%;
+    }
+    .question-container {
+      width: 80%;
+      height: 100%;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    h2 {
+      margin-bottom: 30px;
+    }
+    .options-container {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    button[data-next-slide] {
+      width: 80%;
+      height: 60px;
+      margin: 10px;
+      font-size: 1.25rem;
+    }
+  </style>
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" href="{{url_for('static', filename='logo-1_144x144.png')}}" type="image/png">
+  <link rel="icon" href="{{url_for('static', filename='logo-1_192x192.png')}}" type="image/png">
+  <link rel="icon" href="{{url_for('static', filename='logo-1_512x512.png')}}" type="image/png">
+  <link rel="apple-touch-icon" href="{{url_for('static', filename='logo-1_144x144.png')}}" type="image/png">
+  <link rel="apple-touch-icon" href="{{url_for('static', filename='logo-1_192x192.png')}}" type="image/png">
+  <link rel="apple-touch-icon" href="{{url_for('static', filename='logo-1_512x512.png')}}" type="image/png">
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register("/sw.js").then(function(registration) {
+          console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        }, function(err) {
+          console.log('ServiceWorker registration failed: ', err);
+        });
+      });
+    }
+  </script>
+</head>
+<body>
+    <input type="hidden" id="answers-input" name="answers">
+    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="false">
+      <div class="carousel-inner">
+        <!-- Question 1 -->
+        <div class="carousel-item active">
+          <div class="container h-100 d-flex justify-content-center align-items-center">
+            <div class="question-container text-center">
+              <h2>Which of the following is the most energy-efficient type of light bulb?</h2>
+              <div class="options-container">
+                <button class="btn btn-primary" data-next-slide>Incadescent</button>
+                <button class="btn btn-primary" data-next-slide>Halogen</button>
+                <button class="btn btn-primary" data-next-slide>CFL</button>
+                <button class="btn btn-primary" data-next-slide>LED</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Additional questions go here -->
+        <div class="carousel-item">
+          <div class="container h-100 d-flex justify-content-center align-items-center">
+            <div class="question-container text-center">
+              <h2>Which gas is most commonly associated with climate change?</h2>
+              <div class="options-container">
+                <button class="btn btn-primary" data-next-slide>Oxygen</button>
+                <button class="btn btn-primary" data-next-slide>Nitrogen</button>
+                <button class="btn btn-primary" data-next-slide>Carbon Dio-oxide</button>
+                <button class="btn btn-primary" data-next-slide>Argon</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="container h-100 d-flex justify-content-center align-items-center">
+            <div class="question-container text-center">
+              <h2>What is the primary benefit of composting organic waste?</h2>
+              <div class="options-container">
+                <button class="btn btn-primary" data-next-slide>Reduces Landfill Waste</button>
+                <button class="btn btn-primary" data-next-slide>Generates more Greenhouse gases</button>
+                <button class="btn btn-primary" data-next-slide>Requires more water</button>
+                <button class="btn btn-primary" data-next-slide>Requires energy consumption</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="container h-100 d-flex justify-content-center align-items-center">
+            <div class="question-container text-center">
+              <h2>Which of the following is a renewable energy source?</h2>
+              <div class="options-container">
+                <button class="btn btn-primary" data-next-slide>Coal</button>
+                <button class="btn btn-primary" data-next-slide>Natural Gas</button>
+                <button class="btn btn-primary" data-next-slide>Solar Power</button>
+                <button class="btn btn-primary" data-next-slide>Nuclear Power</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="container h-100 d-flex justify-content-center align-items-center">
+            <div class="question-container text-center">
+              <h2>What is the main purpose of recycling?</h2>
+              <div class="options-container">
+                <button class="btn btn-primary" data-next-slide>To reduce pollution</button>
+                <button class="btn btn-primary" data-next-slide>To increase waste production</button>
+                <button class="btn btn-primary" data-next-slide>To create more packaging waste</button>
+                <button class="btn btn-primary" data-next-slide>To promote deforestation</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <script>
+    // Create an array to store the answers
+var answers = [];
+
+// Get all the buttons with data-next-slide attribute
+var buttons = document.querySelectorAll('button[data-next-slide]');
+
+// Add event listener to each button
+buttons.forEach(function(button) {
+  button.addEventListener('click', function() {
+    // Get the answer text
+    var answer = button.textContent;
+
+    // Add the answer to the array
+    answers.push(answer);
+
+    // Get the current carousel item
+    var currentItem = document.querySelector('.carousel-item.active');
+
+    // Get the next carousel item
+    var nextItem = currentItem.nextElementSibling;
+
+    // If next item exists, move to it with animation
+    if (nextItem) {
+      $('.carousel').carousel('next');
+    } else {
+      // If no next item, log the answers
+      console.log(answers);
+      fetch('/cert',{
+        method: "POST",
+        headers: {
+          'Content-Type':'application/json'
+        },
+        body: JSON.stringify(answers)
+      })
+      .then(res => {
+        if (res.ok) {
+          window.location.href=res.url;
+        } else {
+          console.log('Error',res.status,res.statusText);
+        }
+      })
+      .catch(error => console.log('Error: ',error))
+    }
+  });
+});
+  </script>
+
+  <!-- jQuery, Popper.js, and Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
