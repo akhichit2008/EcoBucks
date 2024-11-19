@@ -18,6 +18,13 @@ def suggest_daily_tasks(score):
     res = model.generate_content(f"Based on this score {score} out of 100 (It shows the sustainbility score of a user based on his daily practices. Suggest some daily tasks for him that he can perform to increase the score. The output should be strictly in points and one sentence and only 4 points allowed")
     return res.text
 
+def check_submission(image,task):
+    model = genai.GenerativeModel('gemini-1.5-flash')
+    res = model.generate_content([f'is this a correct user-submission proof image for this sustainbility task: {task} ? (tell me yes or no other outputs not needed just one word)',image])
+    if "yes" in res.text.lower():
+        return True
+    else:
+        return False
     
 def calculate_based_data(data):
     pass

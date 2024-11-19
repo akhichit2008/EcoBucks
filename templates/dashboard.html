@@ -51,7 +51,7 @@ html, body {
             font-family: 'Inter', sans-serif;
             margin: 0;
             padding: 0;
-            background-image: url("{{url_for('static', filename='bg.png')}}");
+            background-color: #121212;;
             color: white;
             overflow-y:scroll;
             overflow-x:hidden;  
@@ -444,6 +444,30 @@ html, body {
         });
     });
 });
+
+window.onload = function() {
+    // Function to count completed tasks from localStorage
+function countCompletedTasks() {
+    let count = 0;
+    
+    // Loop through localStorage to check for tasks
+    for (let i = 0; i < localStorage.length; i++) {
+        let key = localStorage.key(i);
+        // Check if the key starts with 'task-' and if it's true
+        if (key.startsWith('task-') && localStorage.getItem(key) === 'true') {
+            count++;
+        }
+
+    }
+    console.log("Number of tasks completed: " + count);
+
+    if (count == 4) {window.location.href="/cert/"}
+}
+
+// Example usage: Display the count in console or use it however needed
+
+
+};
     </script>
 
 <style>
