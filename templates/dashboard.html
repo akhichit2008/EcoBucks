@@ -6,10 +6,37 @@
     <title>Sustainability Dashboard</title>
   </script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
     <style>
-        /* Import fonts from Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Borel:wght@400;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Borel:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap');
+
+        .navbar {
+            background-color: #1e1e1e; /* Slightly lighter dark for navbar */
+        }
+        .dropdown-menu {
+            background-color: #2c2c2c; /* Dark dropdown menu */
+            color: #f0f0f0;
+        }
+        .dropdown-menu a {
+            color: #f0f0f0;
+        }
+        .dropdown-menu a:hover {
+            background-color: #444; /* Hover effect for dropdown items */
+        }
+        .avatar-placeholder {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #444;
+            display: inline-block;
+        }
+        .logo {
+            height: 40px;
+        }
+
+        /* Import fonts from Google Fonts */
 
 /* Apply Borel font to headings */
 h1, h2, h3, h4, h5, h6 {
@@ -44,8 +71,13 @@ html, body {
     overflow-x: hidden;
 }
 
-
-
+.container {
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+}
+.container::-webkit-scrollbar { 
+    display: none;  /* Safari and Chrome */
+}
 
         body {
             font-family: 'Inter', sans-serif;
@@ -212,7 +244,20 @@ html, body {
 .tasks li[style*="pointer-events: none"] {
     cursor: not-allowed; /* Optional: change cursor style for non-clickable tasks */
 }
+body{
+    width:100%;
+    overflow-x:hidden;
+    overflow-y:hidden;
+}
 
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: teal;
+  border-radius: 2px;
+}
     </style>
 
 
@@ -237,11 +282,40 @@ html, body {
   </script>
 </head>
 <body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+<nav class="navbar navbar-expand-lg navbar-dark" style="background: none; border-bottom: none;">
+    <div class="container-fluid">
+      <!-- Logo -->
+      <a class="navbar-brand" href="#">
+        <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo" style="height: 60px;">
+      </a>
+  
+      <!-- Avatar Dropdown -->
+      <div class="dropdown ms-auto">
+        <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="text-decoration: none;">
+          <img src="{{ url_for('static', filename='avatar-placeholder.png') }}" alt="Avatar" class="rounded-circle" style="height: 50px; width: 50px;">
+        </a>
+        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+          <li><h6 class="dropdown-header">{{user.username}}</h6></li>
+          <li><a class="dropdown-item" href="#">Score: {{user.score}}</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="{{url_for('logout')}}">Logout</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+  <!-- Bootstrap JS for dropdown to work -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  
+  
     <div class="container">
         <div class="score-container">
             <div class="score {{ 'score-green' if score > 60 else 'score-red' }}">
                 {{ score }}
             </div>
+            <br/>
             <h1>Good Evening!!! {{user.username}}</h1>
         </div>
         <div class="tasks">
