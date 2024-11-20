@@ -1,30 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sustainability Dashboard</title>
-  </script>
+    </script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Borel:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap');
 
         .navbar {
-            background-color: #1e1e1e; /* Slightly lighter dark for navbar */
+            background-color: #1e1e1e;
+            /* Slightly lighter dark for navbar */
         }
+
         .dropdown-menu {
-            background-color: #2c2c2c; /* Dark dropdown menu */
+            background-color: #2c2c2c;
+            /* Dark dropdown menu */
             color: #f0f0f0;
         }
+
         .dropdown-menu a {
             color: #f0f0f0;
         }
+
         .dropdown-menu a:hover {
-            background-color: #444; /* Hover effect for dropdown items */
+            background-color: #444;
+            /* Hover effect for dropdown items */
         }
+
         .avatar-placeholder {
             width: 40px;
             height: 40px;
@@ -32,62 +40,85 @@
             background-color: #444;
             display: inline-block;
         }
+
         .logo {
             height: 40px;
         }
 
         /* Import fonts from Google Fonts */
 
-/* Apply Borel font to headings */
-h1, h2, h3, h4, h5, h6 {
-    font-family: 'Borel', cursive;
-}
+        /* Apply Borel font to headings */
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Borel', cursive;
+        }
 
-/* Apply Rubik font to all other text elements */
-body, p, li, td, th {
-    font-family: 'Rubik', sans-serif;
-}
+        /* Apply Rubik font to all other text elements */
+        body,
+        p,
+        li,
+        td,
+        th {
+            font-family: 'Rubik', sans-serif;
+        }
 
-/* Ensure the html and body elements do not allow horizontal scrolling */
-html, body {
-    overflow-x: hidden;
-    margin: 0; /* Remove default margins that might cause overflow */
-    padding: 0; /* Remove default padding that might cause overflow */
-}
+        /* Ensure the html and body elements do not allow horizontal scrolling */
+        html,
+        body {
+            overflow-x: hidden;
+            margin: 0;
+            /* Remove default margins that might cause overflow */
+            padding: 0;
+            /* Remove default padding that might cause overflow */
+        }
 
-/* Ensure no child elements cause overflow */
-* {
-    box-sizing: border-box; /* Include padding and border in element's total width and height */
-}
+        /* Ensure no child elements cause overflow */
+        * {
+            box-sizing: border-box;
+            /* Include padding and border in element's total width and height */
+        }
 
-/* Optional: Ensure specific containers do not exceed viewport width */
-.container {
-    max-width: 100vw; /* Prevent containers from exceeding viewport width */
-    overflow-x: hidden; /* Ensure containers do not cause horizontal scrolling */
-}
+        /* Optional: Ensure specific containers do not exceed viewport width */
+        .container {
+            max-width: 100vw;
+            /* Prevent containers from exceeding viewport width */
+            overflow-x: hidden;
+            /* Ensure containers do not cause horizontal scrolling */
+        }
 
-/* Optional: Handle flexbox and grid layouts */
-.flex-container, .grid-container {
-    overflow-x: hidden;
-}
+        /* Optional: Handle flexbox and grid layouts */
+        .flex-container,
+        .grid-container {
+            overflow-x: hidden;
+        }
 
-.container {
-    -ms-overflow-style: none;  /* Internet Explorer 10+ */
-    scrollbar-width: none;  /* Firefox */
-}
-.container::-webkit-scrollbar { 
-    display: none;  /* Safari and Chrome */
-}
+        .container {
+            -ms-overflow-style: none;
+            /* Internet Explorer 10+ */
+            scrollbar-width: none;
+            /* Firefox */
+        }
+
+        .container::-webkit-scrollbar {
+            display: none;
+            /* Safari and Chrome */
+        }
 
         body {
             font-family: 'Inter', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #121212;;
+            background-color: #121212;
+            ;
             color: white;
-            overflow-y:scroll;
-            overflow-x:hidden;  
+            overflow-y: scroll;
+            overflow-x: hidden;
         }
+
         .container {
             max-width: 1200px;
             margin: 40px auto;
@@ -95,10 +126,12 @@ html, body {
             border-radius: 12px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
+
         .score-container {
             text-align: center;
             margin-bottom: 30px;
         }
+
         .score {
             width: 120px;
             height: 120px;
@@ -113,48 +146,58 @@ html, body {
             position: relative;
             transition: all 0.3s ease-in-out;
         }
-      
+
         .score-green {
             background-color: #34C759;
         }
+
         .score-red {
             background-color: #FFC107;
         }
+
         .tasks {
             margin-bottom: 30px;
         }
+
         .tasks h2 {
             font-size: 24px;
             font-weight: 500;
             margin-bottom: 10px;
         }
+
         .tasks ul {
             list-style: none;
             padding: 0;
         }
+
         .tasks li {
             background-color: #f7f7f7;
             margin: 5px 0;
             padding: 10px;
             font-size: 16px;
             transition: all 0.3s ease-in-out;
-            color:black;
+            color: black;
         }
+
         .tasks li:hover {
             background-color: #e0e0e0;
         }
+
         .streak-counter {
             text-align: center;
         }
+
         .streak-counter h2 {
             font-size: 24px;
             font-weight: 500;
             margin-bottom: 10px;
         }
+
         .streak-dots {
             display: flex;
             justify-content: center;
         }
+
         .streak-dot {
             width: 50px;
             height: 50px;
@@ -168,19 +211,23 @@ html, body {
             font-size: 12px;
             transition: all 0.3s ease-in-out;
         }
+
         .streak-dot:hover {
             transform: scale(1.1);
         }
+
         /* Leaderboard Styles */
         .leaderboard {
             margin-top: 30px;
         }
+
         .leaderboard h2 {
             font-size: 24px;
             font-weight: 500;
             margin-bottom: 10px;
             text-align: center;
         }
+
         .leaderboard-table {
             width: 100%;
             border-collapse: collapse;
@@ -191,272 +238,452 @@ html, body {
             overflow: hidden;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
+
         .leaderboard-table thead {
             background-color: #333;
         }
-        .leaderboard-table th, .leaderboard-table td {
+
+        .leaderboard-table th,
+        .leaderboard-table td {
             padding: 12px;
             text-align: center;
             border: 1px solid #444;
         }
+
         .leaderboard-table th {
             background-color: #444;
             color: #fff;
         }
+
         .leaderboard-table tr:nth-child(even) {
             background-color: #2c2c2c;
         }
+
         .leaderboard-table tr:nth-child(odd) {
             background-color: #1e1e1e;
         }
+
         .leaderboard-table tr:hover {
             background-color: #575757;
         }
+
         .leaderboard-table .rank {
-            color: #f39c12; /* Gold color for ranking */
+            color: #f39c12;
+            /* Gold color for ranking */
             font-weight: bold;
         }
+
         .leaderboard-table .username {
-            color: #3498db; /* Blue color for usernames */
+            color: #3498db;
+            /* Blue color for usernames */
         }
+
         .leaderboard-table .score {
-            color: #2ecc71; /* Green color for scores */
+            color: #2ecc71;
+            /* Green color for scores */
         }
 
         /* Remove circles around scores in the leaderboard */
-.leaderboard-table td {
-    border: none; /* Remove the border around table cells */
-    background: none; /* Remove any background color */
-    padding: 12px; /* Maintain padding for consistency */
-}
+        .leaderboard-table td {
+            border: none;
+            /* Remove the border around table cells */
+            background: none;
+            /* Remove any background color */
+            padding: 12px;
+            /* Maintain padding for consistency */
+        }
 
-/* Ensure no extra styles are applied to the leaderboard cells */
-.leaderboard-table {
-    border-radius: 0; /* Remove border-radius if applied */
-    box-shadow: none; /* Remove box-shadow if applied */
-}
+        /* Ensure no extra styles are applied to the leaderboard cells */
+        .leaderboard-table {
+            border-radius: 0;
+            /* Remove border-radius if applied */
+            box-shadow: none;
+            /* Remove box-shadow if applied */
+        }
 
-/* Apply additional styles if needed for clarity */
-.leaderboard-table td {
-    color: #fff; /* Text color for better visibility */
-}
+        /* Apply additional styles if needed for clarity */
+        .leaderboard-table td {
+            color: #fff;
+            /* Text color for better visibility */
+        }
 
-.tasks li[style*="pointer-events: none"] {
-    cursor: not-allowed; /* Optional: change cursor style for non-clickable tasks */
-}
-body{
-    width:100%;
-    overflow-x:hidden;
-    overflow-y:hidden;
-}
+        .tasks li[style*="pointer-events: none"] {
+            cursor: not-allowed;
+            /* Optional: change cursor style for non-clickable tasks */
+        }
 
-::-webkit-scrollbar {
-  width: 5px;
-}
 
-::-webkit-scrollbar-thumb {
-  background: teal;
-  border-radius: 2px;
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        body {
+            width: 100%;
+            overflow-x: hidden;
+            overflow-y: hidden;
+        }
+
+        ::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: teal;
+            border-radius: 2px;
+        }
     </style>
 
 
     <link rel="manifest" href="/manifest.json">
     <link rel="icon" type="image/x-icon" href="{{url_for('static',filename='favicon.ico')}}">
     <link rel="icon" href="{{url_for('static', filename='logo-1_144x144.png')}}" type="image/png">
-  <link rel="icon" href="{{url_for('static', filename='logo-1_192x192.png')}}" type="image/png">
-  <link rel="icon" href="{{url_for('static', filename='logo-1_512x512.png')}}" type="image/png">
-  <link rel="apple-touch-icon" href="{{url_for('static', filename='logo-1_144x144.png')}}" type="image/png">
-  <link rel="apple-touch-icon" href="{{url_for('static', filename='logo-1_192x192.png')}}" type="image/png">
-  <link rel="apple-touch-icon" href="{{url_for('static', filename='logo-1_512x512.png')}}" type="image/png">
-  <script>
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', function() {
-        navigator.serviceWorker.register("/sw.js").then(function(registration) {
-          console.log('ServiceWorker registration successful with scope: ', registration.scope);
-        }, function(err) {
-          console.log('ServiceWorker registration failed: ', err);
-        });
-      });
-    }
-  </script>
+    <link rel="icon" href="{{url_for('static', filename='logo-1_192x192.png')}}" type="image/png">
+    <link rel="icon" href="{{url_for('static', filename='logo-1_512x512.png')}}" type="image/png">
+    <link rel="apple-touch-icon" href="{{url_for('static', filename='logo-1_144x144.png')}}" type="image/png">
+    <link rel="apple-touch-icon" href="{{url_for('static', filename='logo-1_192x192.png')}}" type="image/png">
+    <link rel="apple-touch-icon" href="{{url_for('static', filename='logo-1_512x512.png')}}" type="image/png">
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function () {
+                navigator.serviceWorker.register("/sw.js").then(function (registration) {
+                    console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                }, function (err) {
+                    console.log('ServiceWorker registration failed: ', err);
+                });
+            });
+        }
+    </script>
 </head>
+
 <body>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 <nav class="navbar navbar-expand-lg navbar-dark" style="background: none; border-bottom: none;">
     <div class="container-fluid">
-      <!-- Logo -->
-      <a class="navbar-brand" href="#">
-        <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo" style="height: 60px;">
-      </a>
-  
-      <!-- Avatar Dropdown -->
-      <div class="dropdown ms-auto">
-        <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="text-decoration: none;">
-          <img src="{{ url_for('static', filename='avatar-placeholder.png') }}" alt="Avatar" class="rounded-circle" style="height: 50px; width: 50px;">
+        <!-- Logo -->
+        <a class="navbar-brand" href="#">
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo" style="height: 60px;">
         </a>
-        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-          <li><h6 class="dropdown-header">{{user.username}}</h6></li>
-          <li><a class="dropdown-item" href="#">Score: {{user.score}}</a></li>
-          <li><hr class="dropdown-divider"></li>
-          <li><a class="dropdown-item" href="{{url_for('logout')}}">Logout</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-  
-  <!-- Bootstrap JS for dropdown to work -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-  
-  
-    <div class="container">
-        <div class="score-container">
-            <div class="score {{ 'score-green' if score > 60 else 'score-red' }}">
-                {{ score }}
-            </div>
-            <br/>
-            <h1>Good Evening!!! {{user.username}}</h1>
-        </div>
-        <div class="tasks">
-            <h2>Today's Tasks</h2>
-            <ul>
-                {% for task in tasks %}
+
+        <!-- Avatar Dropdown -->
+        <div class="dropdown ms-auto">
+            <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="navbarDropdown" role="button"
+                data-bs-toggle="dropdown" aria-expanded="false" style="text-decoration: none;">
+                <img src="{{ url_for('static', filename='avatar-placeholder.png') }}" alt="Avatar"
+                    class="rounded-circle" style="height: 50px; width: 50px;">
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                 <li>
-                   <div class="task-box">
-                    <a class="ref-link" href="#" style="text-decoration: none;color: black;">{{ task }}</a>
-                    </div>
+                    <h6 class="dropdown-header">{{user.username}}</h6>
                 </li>
-                {% endfor %}
-            </ul>            
-        </div>
-        <a href="{{url_for('cert')}}"><h2>Get Green Certificate</h2></a>
-        <div class="streak-counter">
-            <h2>Daily Streak</h2>
-            <div class="streak-dots">
-                {% for day in range(1, streak + 1) %}
-                <div class="streak-dot">{{ 'Day ' + day|string }}</div>
-                {% endfor %}
-            </div>
-        </div>
-        <br>
-        <div class="leaderboard">
-            <h2>Leaderboard</h2>
-            <table class="leaderboard-table">
-                <thead>
-                    <tr>
-                        <th class="rank">Rank</th>
-                        <th class="username">Username</th>
-                        <th class="score">Score</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for user in leaderboard %}
-                    <tr>
-                        <td class="rank">{{ loop.index }}</td>
-                        <td class="username">{{ user.username }}</td>
-                        <td class="score">{{ user.score }}</td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
+                <li><a class="dropdown-item" href="#">Score: {{user.score}}</a></li>
+                <li>
+                    <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="{{url_for('logout')}}">Logout</a></li>
+            </ul>
         </div>
     </div>
-    <style>
-        .task-box {
-            padding-bottom: 5px;
-        }
-    </style>
-    <script>
-       document.addEventListener('DOMContentLoaded', () => {
-    // Function to get the task states from local storage
-    const getTaskStates = () => JSON.parse(localStorage.getItem('taskStates')) || {};
+</nav>
 
-    // Function to save the task states to local storage
-    const saveTaskStates = (states) => localStorage.setItem('taskStates', JSON.stringify(states));
+<!-- Bootstrap JS for dropdown to work -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 
-    // Get the task states from local storage
-    const taskStates = getTaskStates();
 
-    // Apply the saved states to tasks
-    document.querySelectorAll('.tasks li').forEach((item, index) => {
-        const taskId = `task-${index}`;
-        if (taskStates[taskId]) {
-            item.style.backgroundColor = 'green';
-            item.style.color = 'white';
-            item.style.pointerEvents = 'none'; // Disable clicking
-        }
-        item.dataset.taskId = taskId; // Set task ID for reference
-    });
+<div class="container">
+    <div class="score-container">
+        <div class="score {{ 'score-green' if score > 60 else 'score-red' }}">
+            {{ score }}
+        </div>
+        <br />
+        <h1>Good Evening!!! {{user.username}}</h1>
+    </div>
+    <div class="tasks">
+        <h2>Today's Tasks</h2>
+        <ul>
+            {% for task in tasks %}
+            <li>
+                <div class="task-box">
+                    <a class="ref-link" href="#" style="text-decoration: none;color: black;">{{ task }}</a>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <a href="{{url_for('cert')}}">
+        <h2>Get Green Certificate</h2>
+    </a>
+    <div class="streak-counter">
+        <h2>Daily Streak</h2>
+        <div class="streak-dots">
+            {% for day in range(1, streak + 1) %}
+            <div class="streak-dot">{{ 'Day ' + day|string }}</div>
+            {% endfor %}
+        </div>
+    </div>
+    <br>
+    <div class="leaderboard">
+        <h2>Leaderboard</h2>
+        <table class="leaderboard-table">
+            <thead>
+                <tr>
+                    <th class="rank">Rank</th>
+                    <th class="username">Username</th>
+                    <th class="score">Score</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in leaderboard %}
+                <tr>
+                    <td class="rank">{{ loop.index }}</td>
+                    <td class="username">{{ user.username }}</td>
+                    <td class="score">{{ user.score }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+<style>
+    .task-box {
+        padding-bottom: 5px;
+    }
+</style>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Function to get the task states from local storage
+        const getTaskStates = () => JSON.parse(localStorage.getItem('taskStates')) || {};
 
-   /* document.querySelectorAll('.tasks li').forEach(item => {
+        // Function to save the task states to local storage
+        const saveTaskStates = (states) => localStorage.setItem('taskStates', JSON.stringify(states));
 
-        item.addEventListener('click', (e) => {
-            const now = Date.now();
-            item.style.backgroundColor = 'green';
-            item.style.color = 'white';
-          
-            item.style.pointerEvents = 'none'; // Disable clicking
+        // Get the task states from local storage
+        const taskStates = getTaskStates();
 
-                // Save the task state to local storage
-                taskStates[taskId] = true;
-                saveTaskStates(taskStates);
-
-                // Show the reward overlay
-                const overlay = document.getElementById('reward-overlay');
-                overlay.style.display = 'flex';
-
-                // Send a GET request to the /upd endpoint to update data
-                fetch('/upd', {
-                    method: 'GET',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    }
-                })
-                .then(response => response.json())
-                .then(data => {
-                    console.log('Success:', data);
-
-                    // Update score
-                    document.getElementById('score').innerText = data.newScore;
-
-                    // Update leaderboard
-                    const leaderboardTable = document.getElementById('leaderboard-table').getElementsByTagName('tbody')[0];
-                    leaderboardTable.innerHTML = '';
-
-                    data.leaderboard.forEach(entry => {
-                        const row = document.createElement('tr');
-                        row.innerHTML = `
-                            <td>${entry.rank}</td>
-                            <td>${entry.username}</td>
-                            <td>${entry.score}</td>
-                        `;
-                        leaderboardTable.appendChild(row);
-                    });
-                })
-                .catch((error) => {
-                    console.error('Error:', error);
-                });
-
-                // Hide the overlay after a few seconds
-                setTimeout(() => {
-                    overlay.style.display = 'none';
-                }, 2000);
-
-            lastTap = now;
+        // Apply the saved states to tasks
+        document.querySelectorAll('.tasks li').forEach((item, index) => {
+            const taskId = `task-${index}`;
+            if (taskStates[taskId]) {
+                item.style.backgroundColor = 'green';
+                item.style.color = 'white';
+                item.style.pointerEvents = 'none'; // Disable clicking
+            }
+            item.dataset.taskId = taskId; // Set task ID for reference
         });
-    });
-});
-    */
 
-    // Add touch event listener to tasks
-    document.querySelectorAll('.tasks li').forEach(item => {
-        let lastTap = 0;
-        const DOUBLE_TAP_DELAY = 300; // Maximum time between taps for a double-tap
+        /* document.querySelectorAll('.tasks li').forEach(item => {
+     
+             item.addEventListener('click', (e) => {
+                 const now = Date.now();
+                 item.style.backgroundColor = 'green';
+                 item.style.color = 'white';
+               
+                 item.style.pointerEvents = 'none'; // Disable clicking
+     
+                     // Save the task state to local storage
+                     taskStates[taskId] = true;
+                     saveTaskStates(taskStates);
+     
+                     // Show the reward overlay
+                     const overlay = document.getElementById('reward-overlay');
+                     overlay.style.display = 'flex';
+     
+                     // Send a GET request to the /upd endpoint to update data
+                     fetch('/upd', {
+                         method: 'GET',
+                         headers: {
+                             'Content-Type': 'application/json',
+                         }
+                     })
+                     .then(response => response.json())
+                     .then(data => {
+                         console.log('Success:', data);
+     
+                         // Update score
+                         document.getElementById('score').innerText = data.newScore;
+     
+                         // Update leaderboard
+                         const leaderboardTable = document.getElementById('leaderboard-table').getElementsByTagName('tbody')[0];
+                         leaderboardTable.innerHTML = '';
+     
+                         data.leaderboard.forEach(entry => {
+                             const row = document.createElement('tr');
+                             row.innerHTML = `
+                                 <td>${entry.rank}</td>
+                                 <td>${entry.username}</td>
+                                 <td>${entry.score}</td>
+                             `;
+                             leaderboardTable.appendChild(row);
+                         });
+                     })
+                     .catch((error) => {
+                         console.error('Error:', error);
+                     });
+     
+                     // Hide the overlay after a few seconds
+                     setTimeout(() => {
+                         overlay.style.display = 'none';
+                     }, 2000);
+     
+                 lastTap = now;
+             });
+         });
+     });
+         */
 
-        item.addEventListener('touchend', (e) => {
-            const now = Date.now();
-            if (now - lastTap <= DOUBLE_TAP_DELAY) {
+        // Add touch event listener to tasks
+        document.querySelectorAll('.tasks li').forEach(item => {
+            let lastTap = 0;
+            const DOUBLE_TAP_DELAY = 300; // Maximum time between taps for a double-tap
+
+            item.addEventListener('click', (e) => {
+                const now = Date.now();
+
                 const taskId = item.dataset.taskId;
                 const taskInfo = item.dataset.taskInfo;
 
@@ -465,9 +692,9 @@ body{
                 item.style.color = 'white';
                 item.style.pointerEvents = 'none'; // Disable clicking
                 const link = item.querySelector('a');
-    if (link) {
-        link.style.color = 'white';  // Change the link color
-    }
+                if (link) {
+                    link.style.color = 'white';  // Change the link color
+                }
                 // Save the task state to local storage
                 taskStates[taskId] = true;
                 saveTaskStates(taskStates);
@@ -483,94 +710,97 @@ body{
                         'Content-Type': 'application/json',
                     }
                 })
-                .then(response => response.json())
-                .then(data => {
-                    console.log('Success:', data);
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log('Success:', data);
 
-                    // Update score
-                    document.getElementById('score').innerText = data.newScore;
+                        // Update score
+                        document.getElementById('score').innerText = data.newScore;
 
-                    // Update leaderboard
-                    const leaderboardTable = document.getElementById('leaderboard-table').getElementsByTagName('tbody')[0];
-                    leaderboardTable.innerHTML = '';
+                        // Update leaderboard
+                        const leaderboardTable = document.getElementById('leaderboard-table').getElementsByTagName('tbody')[0];
+                        leaderboardTable.innerHTML = '';
 
-                    data.leaderboard.forEach(entry => {
-                        const row = document.createElement('tr');
-                        row.innerHTML = `
+                        data.leaderboard.forEach(entry => {
+                            const row = document.createElement('tr');
+                            row.innerHTML = `
                             <td>${entry.rank}</td>
                             <td>${entry.username}</td>
                             <td>${entry.score}</td>
                         `;
-                        leaderboardTable.appendChild(row);
+                            leaderboardTable.appendChild(row);
+                            window.location.href = "/submission/${taskInfo}";
+                        });
+                    })
+                    .catch((error) => {
+                        console.error('Error:', error);
                     });
-                })
-                .catch((error) => {
-                    console.error('Error:', error);
-                });
 
                 // Hide the overlay after a few seconds
                 setTimeout(() => {
                     overlay.style.display = 'none';
                 }, 2000);
-            }
 
-            lastTap = now;
+                lastTap = now;
+            });
         });
     });
-});
 
-window.onload = function() {
-    // Function to count completed tasks from localStorage
-function countCompletedTasks() {
-    let count = 0;
-    
-    // Loop through localStorage to check for tasks
-    for (let i = 0; i < localStorage.length; i++) {
-        let key = localStorage.key(i);
-        // Check if the key starts with 'task-' and if it's true
-        if (key.startsWith('task-') && localStorage.getItem(key) === 'true') {
-            count++;
+    window.onload = function () {
+        // Function to count completed tasks from localStorage
+        function countCompletedTasks() {
+            let count = 0;
+
+            // Loop through localStorage to check for tasks
+            for (let i = 0; i < localStorage.length; i++) {
+                let key = localStorage.key(i);
+                // Check if the key starts with 'task-' and if it's true
+                if (key.startsWith('task-') && localStorage.getItem(key) === 'true') {
+                    count++;
+                }
+
+            }
+            console.log("Number of tasks completed: " + count);
+
+            if (count == 4) { window.location.href = "/cert/" }
         }
 
-    }
-    console.log("Number of tasks completed: " + count);
-
-    if (count == 4) {window.location.href="/cert/"}
-}
-
-// Example usage: Display the count in console or use it however needed
+        // Example usage: Display the count in console or use it however needed
 
 
-};
-    </script>
+    };
+</script>
 
 <style>
     /* Reward Overlay Styles */
-.reward-overlay {
-    display: none; /* Hidden by default */
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7); /* Slightly black background */
-    color: #fff; /* White text color */
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    z-index: 1000; /* Ensure it is above other content */
-}
+    .reward-overlay {
+        display: none;
+        /* Hidden by default */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        /* Slightly black background */
+        color: #fff;
+        /* White text color */
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        z-index: 1000;
+        /* Ensure it is above other content */
+    }
 
-.reward-message {
-    font-size: 24px;
-    font-weight: bold;
-    padding: 20px;
-    background-color: #333; /* Dark background for the message box */
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-}
-
-
+    .reward-message {
+        font-size: 24px;
+        font-weight: bold;
+        padding: 20px;
+        background-color: #333;
+        /* Dark background for the message box */
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
 </style>
 
 
@@ -579,4 +809,5 @@ function countCompletedTasks() {
 </div>
 
 </body>
+
 </html>

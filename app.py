@@ -47,8 +47,13 @@ class Task(db.Model):
     info = db.Column(db.String(200),nullable=False)
     user_id = db.Column(db.Integer,db.ForeignKey("user.id"),nullable=False)
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/')
+def home():
+    return render_template("index.html")
+
+@app.route('/signup', methods=['GET', 'POST'])
 def signup():
+
     # Check if the user is already logged in
     if current_user.is_authenticated:
         return redirect(url_for('dashboard'))  # Redirect to the dashboard or another page if already logged in
@@ -142,26 +147,6 @@ def upd():
     user.score += 2
     db.session.commit()
     return {"Status":"Success"}
-'''
-@app.route('/cert',methods=['GET','POST'])
-def cert():
-    if request.method == "POST":
-        answers = request.get_json()
-        keys = {
-        "Which of the following is the most energy-efficient type of light bulb?": "LED",
-        "Which gas is most commonly associated with climate change?": "Carbon Dio-oxide",
-        "What is the primary benefit of composting organic waste?": "Reduces Landfill Waste",
-        "Which of the following is a renewable energy source?": "Solar Power",
-        "What is the main purpose of recycling?": "To reduce pollution"
-        }
-        cert_score = 0
-        for i in range(len(answers)):
-            if answers[i] == list(keys.values())[i]:
-                cert_score += 10
-        print(cert_score)
-        return redirect(url_for("dashboard"))
-    return render_template("cert.html")
-'''
 
 @app.route('/rec',methods=['POST'])
 def rec():
